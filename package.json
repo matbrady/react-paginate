@@ -34,6 +34,7 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "express": "^4.13.4",
+    "gulp": "^3.9.1",
     "jest-cli": "^0.8.2",
     "jquery": "^2.2.0",
     "react": "^0.14.6",
@@ -48,7 +49,8 @@
   "scripts": {
     "test": "BABEL_JEST_STAGE=0 jest",
     "prepublish": "babel ./react_components --out-dir ./dist --source-maps --presets es2015,stage-0,react",
-    "start": "webpack-dev-server --hot --inline"
+    "start": "webpack-dev-server --hot --inline",
+    "demo": "webpack"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
