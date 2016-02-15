@@ -78,7 +78,7 @@ export default class PaginationListView extends Component {
     }
 
     return (
-      <ul className={this.props.subContainerClassName}>
+      <ul className={this.props.subContainerClassName} aria-label="Pagination pages">
         {createFragment(items)}
       </ul>
     );

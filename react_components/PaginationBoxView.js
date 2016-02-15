@@ -4,7 +4,6 @@ import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 import PaginationListView from './PaginationListView';
 
-
 export default class PaginationBoxView extends Component {
   static propTypes = {
     pageNum               : PropTypes.number.isRequired,
@@ -98,9 +97,16 @@ export default class PaginationBoxView extends Component {
                                    {disabled: this.state.selected === this.props.pageNum - 1});
 
     return (
-      <ul className={this.props.containerClassName}>
+      <ul className={this.props.containerClassName} role="Navigation" aria-label="Pagination">
         <li onClick={this.handlePreviousPage} className={previousClasses}>
-          <a href="" className={this.props.previousLinkClassName}>{this.props.previousLabel}</a>
+          <a
+            href="#"
+            aria-disabled={this.state.selected === 0 ? true : false}
+            aria-label={`${this.props.previousLabel}`}
+            className={this.props.previousLinkClassName}
+            >
+            {this.props.previousLabel}
+          </a>
         </li>
 
         <li>
@@ -119,7 +125,14 @@ export default class PaginationBoxView extends Component {
         </li>
 
         <li onClick={this.handleNextPage} className={nextClasses}>
-          <a href="" className={this.props.nextLinkClassName}>{this.props.nextLabel}</a>
+          <a
+            href="#"
+            aria-disabled={this.state.selected === 0 ? true : false}
+            aria-label={`${this.props.nextLabel}`}
+            className={this.props.nextLinkClassName}
+            >
+            {this.props.nextLabel}
+          </a>
         </li>
       </ul>
     );
