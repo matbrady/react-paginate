@@ -90,13 +90,18 @@ var PaginationBoxView = function (_Component) {
 
       return _react2.default.createElement(
         'ul',
-        { className: this.props.containerClassName },
+        { className: this.props.containerClassName, role: 'Navigation', 'aria-label': 'Pagination' },
         _react2.default.createElement(
           'li',
           { onClick: this.handlePreviousPage, className: previousClasses },
           _react2.default.createElement(
             'a',
-            { href: '#', 'aria-disabled': this.state.selected === 0 ? true : false, 'aria-label': '' + this.props.previousLabel, className: this.props.previousLinkClassName },
+            {
+              href: '#',
+              'aria-disabled': this.state.selected === 0 ? true : false,
+              'aria-label': '' + this.props.previousLabel,
+              className: this.props.previousLinkClassName
+            },
             this.props.previousLabel
           )
         ),
@@ -121,7 +126,12 @@ var PaginationBoxView = function (_Component) {
           { onClick: this.handleNextPage, className: nextClasses },
           _react2.default.createElement(
             'a',
-            { href: '#', 'aria-disabled': this.state.selected === 0 ? true : false, 'aria-label': '' + this.props.nextLabel, className: this.props.nextLinkClassName },
+            {
+              href: '#',
+              'aria-disabled': this.state.selected === 0 ? true : false,
+              'aria-label': '' + this.props.nextLabel,
+              className: this.props.nextLinkClassName
+            },
             this.props.nextLabel
           )
         )

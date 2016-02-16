@@ -106,7 +106,7 @@ var PaginationListView = function (_Component) {
 
       return _react2.default.createElement(
         'ul',
-        { className: this.props.subContainerClassName },
+        { className: this.props.subContainerClassName, 'aria-label': 'Pagination pages' },
         (0, _reactAddonsCreateFragment2.default)(items)
       );
     }

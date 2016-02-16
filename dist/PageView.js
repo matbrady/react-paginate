@@ -34,15 +34,19 @@ var PageView = function (_React$Component) {
     value: function render() {
       var linkClassName = this.props.pageLinkClassName;
       var cssClassName = this.props.pageClassName;
+      var accessibleLabel = 'page ' + this.props.page;
 
       // Check if the PageView is the selected page
       if (this.props.selected) {
+        // append active page text to accessible label
+        accessibleLabel = 'You\'re currenly on ' + accessibleLabel;
         // IF cssClassName exists:
         if (typeof cssClassName !== 'undefined') {
           // append activeClassName
           cssClassName = cssClassName + ' ' + this.props.activeClassName;
         } else {
-          // ELSE set default classname
+          // ELSE
+          // set default classname
           cssClassName = this.props.activeClassName;
         }
       }
@@ -52,7 +56,12 @@ var PageView = function (_React$Component) {
         { className: cssClassName },
         _react2.default.createElement(
           'a',
-          _extends({}, this.props, { href: '', className: linkClassName, 'aria-disabled': 'testing', 'aria-label': 'Page ' + this.props.page }),
+          _extends({}, this.props, {
+            href: '#',
+            className: linkClassName,
+            'aria-disabled': this.props.selected,
+            'aria-label': accessibleLabel
+          }),
           this.props.page
         )
       );
